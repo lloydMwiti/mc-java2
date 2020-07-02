@@ -1,0 +1,66 @@
+{{#partial "content"}}
+    <nav class="nav-fixed ww-90 h between">
+        <a href="" class="title left v-100">TITLE</a>
+        <div class="h nav-center v-100 ">
+            <a href="/" class="nav-link">home</a>
+
+        </div>
+        <div class="right v-100">
+            right
+        </div>
+
+    </nav>
+    <div class="burger v">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+    </div>
+    <div class="hidden-nav v a-center vv-100">
+        <a href="" class="hidden-link">alot of things</a>
+        <a href="" class="hidden-link">one and</a>
+        <a href="" class="hidden-link">one and</a>
+        <a href="" class="hidden-link">one and</a>
+    </div>
+    <div class="w-100 top even h vv-75">
+        <div class="lorem w-25 v center">
+            <h2>Welcome to Hero Squad</h2>
+            <p>
+                Fill out the form right next if you want to join the squad
+            </p>
+        </div>
+        <span></span>
+        <div class="v left card ">
+            <form action="/posts/new" method="POST">
+                <h2>Join Us Now</h2><br>
+                <label for="name">Whats your hero name</label>
+                <input id="name" name="name" type="text">
+                <br>
+                <label for="power">Whats your super power</label>
+                <input id="power" name="power" type="text">
+                <span> <br></span>
+                <button type="submit" class="btn w-100" class="btn btn-default">Add post</button>
+            </form>
+        </div>
+    </div>
+    <div class="cntnt v center">
+        <h1>Welcome to the squad</h1>
+
+        {{#if posts}} <!--if posts exist, then -->
+        <div class=".h-fluid ">
+            {{#each posts }} <!--loop-->
+            <div class="card w-25">
+                <p class="tt">New hero:</p>
+                <p class="sp">{{ name }}</p>
+                <p class="tt">Current powers:</p>
+                <p class="sp">{{ power }}</p>
+            </div>
+            {{/each}}</div>
+        {{else}} <!--no posts!-->
+            <p>No posts!</p>
+        {{/if}}
+
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}
