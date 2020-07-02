@@ -228,6 +228,33 @@ input{
     .nav-center,.right{
         display: none;
     }
+    .lorem{
+        margin-bottom: 1rem;
+    }
+    .nav-link{
+        display: none;
+    }
+    .h{
+        display: flex;
+        flex-direction: column;
+    }
+    .vv-75{
+        height: max-content;
+    }
+    .top{
+        padding-top: 5rem;
+    }
+    .card{
+        width:calc( 100% - 2rem);
+    }
+    .ww-25,.w-25{
+        width: 80%;
+    }
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
     .title{
         font-size: 1.3rem;
     }
