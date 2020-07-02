@@ -12,6 +12,7 @@ data from the form to the (Post) file method .The get method also retrieves \
 the array members added there before. 
 
 ## Language used
+html css and javaScript \
 Java with gradle dependencies
 ## test and trial
 just download the project to your local machine   \
