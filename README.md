@@ -5,7 +5,11 @@ a java application that Creates and allows access to a list of heroes and allows
 ## Developer
 Lloyd Mwiti
 ## BDD
-the app has two functions , each separated into individual methods \
+the app has a separate (post.java) file to handle the adding of new  \
+members to squad array . There are two routes , one a get method to  \
+route to the home (index.hbs) file,the second a post route to hand over \
+data from the form to the (Post) file method .The get method also retrieves \
+the array members added there before. 
 
 ## Language used
 Java with gradle dependencies
