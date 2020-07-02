@@ -6,6 +6,10 @@
     font-family: sans-serif;
     text-decoration: none;
 }
+.micro{
+    font-size: 1rem;
+    color: grey;
+}
 .h-fluid{
     display:flex;
     flex-wrap: wrap;
@@ -52,6 +56,16 @@ body{
     background-color: white;
     font-size: 1.1rem;
     width: 33%;
+    min-width: 18rem;
+    margin:.4rem;
+    box-shadow: 0 .1rem .5rem -.1rem #42426f;
+}
+.cards{
+    border-radius: .4rem;
+    padding:1rem .5rem ;
+    background-color: white;
+    font-size: 1.1rem;
+    width: 24%;
     min-width: 18rem;
     margin:.4rem;
     box-shadow: 0 .1rem .5rem -.1rem #42426f;
@@ -244,10 +258,21 @@ input{
     .top{
         padding-top: 5rem;
     }
+    .cntnt{
+        padding: 4rem 1rem 2rem 1rem;
+        width:calc(100vw - 2rem);
+
+    }
     .card{
         width:calc( 100% - 2rem);
     }
+    .cards{
+        width:calc( 90% - 10rem);
+    }
     .ww-25,.w-25{
+        width: 80%;
+    }
+    .h-fluid{
         width: 80%;
     }
     nav{

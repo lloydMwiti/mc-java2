@@ -47,11 +47,12 @@
         {{#if posts}} <!--if posts exist, then -->
         <div class=".h-fluid ">
             {{#each posts }} <!--loop-->
-            <div class="card w-25">
-                <p class="tt">New hero:</p>
-                <p class="sp">{{ name }}</p>
-                <p class="tt">Current powers:</p>
-                <p class="sp">{{ power }}</p>
+            <div class="cards">
+                <p class="tt">Name: {{ name }} <span class="micro">{{ age }} yrs</span></p>
+                <p class="tt">powers:{{ power }}</p>
+                <p class="tt">Weakness: </p>
+                <p class="sp">{{ weakness }}</p>
+
             </div>
             {{/each}}</div>
         {{else}} <!--no posts!-->
