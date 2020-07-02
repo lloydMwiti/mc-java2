@@ -11,13 +11,7 @@
     color: grey;
 }
 
-.h-fluid{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100vw;
 
-}
 body{
     font-family: sans-serif;
     font-size: 1.1rem;
@@ -33,12 +27,18 @@ body{
 
 }
 .tt{
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    margin-left: 1rem;
 
 }
 .sp{
-    margin-left:.5rem;
-    font-size: 1.1rem;
+    margin-left:1.5rem;
+    font-size: 1rem;
+    color: #454545;
+}
+.spc{
+    margin-left:1.5rem;
+    font-size: 1rem;
     color: #454545;
 }
 .page{
@@ -49,27 +49,41 @@ body{
 }
 .top{
     background-size: cover;
-    background: #513eff no-repeat center;
+    background-color: #2d2d2d;
+    background-repeat:  no-repeat;
     height: max-content;
-    min-height: 80vh;
+    min-height: 89vh;
 }
 .card{
     border-radius: .4rem;
-    padding:1rem .5rem ;
+    padding:1rem 1rem ;
     background-color: white;
     font-size: 1.1rem;
     width: 33%;
     min-width: 18rem;
     margin:.4rem;
+    max-width: 22rem;
     box-shadow: 0 .1rem .5rem -.1rem #42426f;
+}
+.card-title{
+    width:calc(100% - 1rem);
+    padding:.5rem;
+    background-color: #ff0b3b;
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    font-size:1.1rem;
+}
+.fight{
+    font-size: 1.2rem;
+    color: white;
 }
 .cards{
     border-radius: .4rem;
-    padding:1rem .5rem ;
+    padding:0.3rem 0.3rem 1rem 0.3rem ;
     background-color: white;
     font-size: 1.1rem;
     width: 24%;
-    min-width: 18rem;
+    min-width: 12rem;
     margin:.4rem;
     box-shadow: 0 .1rem .5rem -.1rem #42426f;
 }
@@ -80,7 +94,7 @@ body{
     font-size: 1.1rem;
 }
 .btn{
-    margin-top: .4rem;
+    margin-top: .8rem;
     padding:.2rem 0;
     border: none;
     background-color: #1600d4;
@@ -96,16 +110,27 @@ br{
 }
 input{
     padding: .2rem 1rem;
-    border:none;
-    box-shadow: 0 .1rem .5rem -.2rem #535353;
+    border:1px solid grey;
+    /**/
     border-radius: .2rem;
     width:calc(100% - 2rem);
     margin-bottom: .3rem;
     font-size: 1.1rem;
 }
+input:focus{
+    box-shadow: 0 .1rem .5rem -.2rem #535353;
+}
 .small-input{
     width:30%;
     justify-self: flex-end;
+}
+.h-fluid{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 96vw;
+
 }
 .h{
     display: flex;
@@ -273,7 +298,8 @@ input{
         width:calc( 100% - 2rem);
     }
     .cards{
-        width:calc( 90% - 10rem);
+        width:calc( 100% - 1rem);
+        max-width: 100%;
     }
     .ww-25,.w-25{
         width: 80%;

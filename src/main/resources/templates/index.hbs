@@ -1,6 +1,6 @@
 {{#partial "content"}}
     <nav class="nav-fixed ww-90 h between">
-        <a href="" class="title left v-100">TITLE</a>
+        <a href="" class="title left v-100">SQUADS</a>
         <div class="h nav-center v-100 ">
             <a href="/" class="nav-link">home</a>
 
@@ -31,32 +31,44 @@
         <div class="v left card ">
             <form action="/posts/new" method="POST">
                 <h2>Join Us Now</h2><br>
-                <label for="name">Whats your hero name</label>
-                <input id="name" name="name" type="text">
+                <label for="name">Name</label>
+                <input id="name" required name="name" type="text">
                 <br>
-                <label for="power">Whats your super power</label>
-                <input id="power" name="power" type="text">
+                <label for="power">Power</label>
+                <input id="power" required name="power" type="text">
                 <br>
-                <label for="weakness">Any weakness ,no shame</label>
-                <input id="weakness" name="weakness" type="text">
+                <label for="weakness">Weakness</label>
+                <input id="weakness" required name="weakness" type="text">
                 <div class="h between w-75">
                     <label for="age">How old are you?</label>
-                    <input class="small-input" id="age" name="age" type="number">
+                    <input class="small-input" required id="age" name="age" type="number">
                 </div>
+                <label for="fight">Choose your squad :</label>
+                <select name="fight" required id="fight">
+                    <option value="sexism">Anti-Sexism</option>
+                    <option value="illiteracy">Anti-Illiteracy</option>
+                    <option value="cyber">Anti-Cyber bullying</option>
+                </select>
                 <span> <br></span>
                 <button type="submit" class="btn w-100" class="btn btn-default">Add post</button>
             </form>
         </div>
     </div>
-    <div class="cntnt v center">
+
         <h1>Welcome to the squad</h1>
 
         {{#if posts}} <!--if posts exist, then -->
-        <div class=".h-fluid ">
+        <div class=" h-fluid ">
             {{#each posts }} <!--loop-->
             <div class="cards">
-                <p class="tt">Name: {{ name }} <span class="micro">{{ age }} yrs</span></p>
-                <p class="tt">powers:{{ power }}</p>
+                <div class="card-title h between">
+                    <p class="fight">{{ fight }}</p>
+                    <p class="sp">s{{ members }}</p>
+                </div>
+                <p class="tt">Name: </p>
+                <p class="sp">{{ name }} <span class="micro">{{ age }} yrs</span></p>
+                <p class="tt">powers:</p>
+                <p class="sp">{{ power }}</p>
                 <p class="tt">Weakness: </p>
                 <p class="sp">{{ weakness }}</p>
 
@@ -66,7 +78,7 @@
             <p>No Squads yet</p>
         {{/if}}
 
-    </div>
+
 
 {{/partial}}
 
