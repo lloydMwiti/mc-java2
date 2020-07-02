@@ -10,6 +10,7 @@
     font-size: 1rem;
     color: grey;
 }
+
 .h-fluid{
     display:flex;
     flex-wrap: wrap;
@@ -49,6 +50,8 @@ body{
 .top{
     background-size: cover;
     background: #513eff no-repeat center;
+    height: max-content;
+    min-height: 80vh;
 }
 .card{
     border-radius: .4rem;
@@ -100,7 +103,10 @@ input{
     margin-bottom: .3rem;
     font-size: 1.1rem;
 }
-
+.small-input{
+    width:30%;
+    justify-self: flex-end;
+}
 .h{
     display: flex;
     align-items: center;

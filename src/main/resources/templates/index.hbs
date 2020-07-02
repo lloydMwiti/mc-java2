@@ -20,7 +20,7 @@
         <a href="/" class="hidden-link">back home</a>
 
     </div>
-    <div class="w-100 top even h vv-75">
+    <div class="w-100 top even h ">
         <div class="lorem w-25 v center">
             <h2>Welcome to Hero Squad</h2>
             <p>
@@ -36,6 +36,13 @@
                 <br>
                 <label for="power">Whats your super power</label>
                 <input id="power" name="power" type="text">
+                <br>
+                <label for="weakness">Any weakness ,no shame</label>
+                <input id="weakness" name="weakness" type="text">
+                <div class="h between w-75">
+                    <label for="age">How old are you?</label>
+                    <input class="small-input" id="age" name="age" type="number">
+                </div>
                 <span> <br></span>
                 <button type="submit" class="btn w-100" class="btn btn-default">Add post</button>
             </form>
@@ -56,7 +63,7 @@
             </div>
             {{/each}}</div>
         {{else}} <!--no posts!-->
-            <p>No posts!</p>
+            <p>No Squads yet</p>
         {{/if}}
 
     </div>
