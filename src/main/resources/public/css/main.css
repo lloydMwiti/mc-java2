@@ -49,8 +49,7 @@ body{
 }
 .top{
     background-size: cover;
-    background-color: #2d2d2d;
-    background-repeat:  no-repeat;
+    background:linear-gradient(50deg, #4400ff, #4839dc,#2811ff, #3d27ff) ;
     height: max-content;
     min-height: 89vh;
 }
@@ -97,8 +96,9 @@ body{
     margin-top: .8rem;
     padding:.2rem 0;
     border: none;
-    background-color: #1600d4;
+    background-color: #ff0b3b;
     border-radius: 1rem;
+    box-shadow: 0 .1rem .4rem -.15rem #2f2f2f;
     color:white;
     font-size: 1.1rem;
 }

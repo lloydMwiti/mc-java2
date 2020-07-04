@@ -1,0 +1,85 @@
+{{#partial "content"}}
+    <nav class="nav-fixed ww-90 h between">
+        <a href="" class="title left v-100">SQUADS</a>
+        <div class="h nav-center v-100 ">
+            <a href="/" class="nav-link">home</a>
+
+        </div>
+        <div class="right v-100">
+            right
+        </div>
+
+    </nav>
+    <div class="burger v">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+    </div>
+    <div class="hidden-nav v a-center vv-100">
+        <a href="" class="hidden-link">alot of things</a>
+        <a href="/" class="hidden-link">back home</a>
+
+    </div>
+    <div class="w-100 top even h ">
+        <div class="lorem w-25 v center">
+            <h2>Welcome to Hero Squad</h2>
+            <p>
+                Fill out the form right next if you want to join the squad
+            </p>
+        </div>
+        <span></span>
+        <div class="v left card ">
+            <form action="/posts/new" method="POST">
+                <h2>Join Us Now</h2><br>
+                <label for="name">Name</label>
+                <input id="name" required name="name" type="text">
+                <br>
+                <label for="power">Power</label>
+                <input id="power" required name="power" type="text">
+                <br>
+                <label for="weakness">Weakness</label>
+                <input id="weakness" required name="weakness" type="text">
+                <div class="h between w-75">
+                    <label for="age">How old are you?</label>
+                    <input class="small-input" required id="age" name="age" type="number">
+                </div>
+                <label for="fight">Choose your squad :</label>
+                <select name="fight" required id="fight">
+                    <option value="sexism">Anti-Sexism</option>
+                    <option value="illiteracy">Anti-Illiteracy</option>
+                    <option value="cyber">Anti-Cyber bullying</option>
+                </select>
+                <span> <br></span>
+                <button type="submit" class="btn w-100" class="btn btn-default">Add post</button>
+            </form>
+        </div>
+    </div>
+
+        <h1>Welcome to the squad</h1>
+
+        {{#if posts}} <!--if posts exist, then -->
+        <div class=" h-fluid ">
+            {{#each posts }} <!--loop-->
+            <div class="cards">
+                <div class="card-title h between">
+                    <p class="fight">{{ fight }}</p>
+                    <p class="sp">s{{ members }}</p>
+                </div>
+                <p class="tt">Name: </p>
+                <p class="sp">{{ name }} <span class="micro">{{ age }} yrs</span></p>
+                <p class="tt">powers:</p>
+                <p class="sp">{{ power }}</p>
+                <p class="tt">Weakness: </p>
+                <p class="sp">{{ weakness }}</p>
+
+            </div>
+            {{/each}}</div>
+        {{else}} <!--no posts!-->
+            <p>No Squads yet</p>
+        {{/if}}
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}
