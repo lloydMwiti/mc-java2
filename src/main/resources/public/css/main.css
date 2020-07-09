@@ -108,6 +108,10 @@ h2{
 br{
     height: .5rem;
 }
+.smp{
+    color: #ffffff;
+    font-size: .8rem;
+}
 input{
     padding: .2rem 1rem;
     border:1px solid grey;

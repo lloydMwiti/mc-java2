@@ -1,9 +1,11 @@
-import models.Post;
+import dao.Sql2oTaskDao;
+import models.Task;
+import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -18,15 +20,15 @@ public class App {
     }
     public static void main(String[]args){
         port(getHerokuAssignedPort());
-        staticFileLocation("/public");
+        String connectionString = "jdbc:h2:~/squads.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        Sql2oTaskDao taskDao = new Sql2oTaskDao(sql2o);
         staticFileLocation("/public");
 
         get("/",(request, response) ->{
                 Map<String,Object> model=new HashMap<String,Object>();
-                ArrayList<Post> posts = Post.getAll();
-//                ArrayList<Task> tasks = Task.getAll();
-//                model.put("tasks", tasks);
-                model.put("posts", posts);
+                List<Task> tasks = taskDao.getAll();
+                model.put("tasks", tasks);
                 return new ModelAndView(model,"index.hbs");
                 } , new HandlebarsTemplateEngine());
 
@@ -39,8 +41,8 @@ public class App {
             String age = request.queryParams("age");
             String fight = request.queryParams("fight");
             request.session().attribute("usrname",name);
-            Post newPost = new Post(name,power,weakness,age,fight);
-//            Task newTask = new Task(name,power,age,weakness,fight);
+            Task newTask = new Task(name,power,age,weakness,fight);
+            taskDao.add(newTask);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 

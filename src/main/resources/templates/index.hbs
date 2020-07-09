@@ -41,7 +41,7 @@
                 <input id="weakness" required name="weakness" type="text">
                 <div class="h between w-75">
                     <label for="age">How old are you?</label>
-                    <input class="small-input" required id="age" name="age" type="number">
+                    <input class="small-input" min="12" max="140" required id="age" name="age" type="number">
                 </div>
                 <label for="fight">Choose your squad :</label>
                 <select name="fight" required id="fight">
@@ -57,13 +57,13 @@
 
         <h1>Welcome to the squad</h1>
 
-        {{#if posts}} <!--if posts exist, then -->
+        {{#if tasks}} <!--if posts exist, then -->
         <div class=" h-fluid ">
-            {{#each posts }} <!--loop-->
+            {{#each tasks }} <!--loop-->
             <div class="cards">
                 <div class="card-title h between">
                     <p class="fight">{{ fight }}</p>
-                    <p class="sp">s{{ members }}</p>
+                    <p class="smp">id: {{ id }}</p>
                 </div>
                 <p class="tt">Name: </p>
                 <p class="sp">{{ name }} <span class="micro">{{ age }} yrs</span></p>
