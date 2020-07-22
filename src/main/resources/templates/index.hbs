@@ -3,6 +3,7 @@
         <a href="" class="title left v-100">SQUADS</a>
         <div class="h nav-center v-100 ">
             <a href="/" class="nav-link">home</a>
+            <a href="/newfile" class="nav-link">add Squad</a>
 
         </div>
         <div class="right v-100">
@@ -18,11 +19,12 @@
     <div class="hidden-nav v a-center vv-100">
         <a href="" class="hidden-link">alot of things</a>
         <a href="/" class="hidden-link">back home</a>
+        <a href="/new/squad" class="hidden-link">new squad</a>
 
     </div>
     <div class="w-100 top even h ">
         <div class="lorem w-25 v center">
-            <h2>Welcome to Hero Squad</h2>
+            <h2>Welcome to Hero Squads</h2>
             <p>
                 Fill out the form right next if you want to join the squad
             </p>
@@ -44,11 +46,15 @@
                     <input class="small-input" min="12" max="140" required id="age" name="age" type="number">
                 </div>
                 <label for="fight">Choose your squad :</label>
+                {{#if squad}}
                 <select name="fight" required id="fight">
-                    <option value="sexism">Anti-Sexism</option>
-                    <option value="illiteracy">Anti-Illiteracy</option>
-                    <option value="cyber">Anti-Cyber bullying</option>
+                    {{#each squad}}
+                    <option>{{ name }}</option>
+                    {{/each}}
                 </select>
+                    {{else}}
+                    <p>Please fill out the squad form</p>
+                    {{/if}}
                 <span> <br></span>
                 <button type="submit" class="btn w-100" class="btn btn-default">Add post</button>
             </form>

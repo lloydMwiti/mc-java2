@@ -1,0 +1,13 @@
+{{#partial "content"}}
+<form action="/serial/new" method="POST" class="ww-33 v left">
+    <label for="name">Squad Name</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="cause">Squad cause</label>
+    <input type="text" id="cause" name="cause" required>
+    <br>
+    <button class="w-100 btn" type="submit">submit</button>
+</form>
+
+{{/partial}}
+{{> layout.hbs}}

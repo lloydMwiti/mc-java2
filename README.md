@@ -1,7 +1,7 @@
 # App
 Superhero Sign Up
 # About
-a java application that Creates and allows access to a list of heroes and allows new entries to the Squad
+a java application that Creates and allows access to a list of heroes and allows new entries to the Squads
 ## Developer
 Lloyd Mwiti
 ## test
@@ -9,7 +9,7 @@ click here https://lmheros.herokuapp.com/ to view on heroku.
 ## BDD
 the app has a separate (post.java) file to handle the adding of new  \
 members to squad array . There are two routes , one a get method to  \
-route to the home (index.hbs) file,the second a post route to hand over \
+route to the home (index.hbs) file \
 data from the form to the (models.Post) file method .The get method also retrieves \
 the array members added there before. 
 

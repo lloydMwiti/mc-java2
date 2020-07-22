@@ -1,4 +1,5 @@
 import dao.Sql2oTaskDao;
+import models.Squad;
 import models.Task;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
@@ -16,23 +17,29 @@ public class App {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+        return 4567;
     }
     public static void main(String[]args){
-        port(getHerokuAssignedPort());
-        String connectionString = "jdbc:h2:~/squads.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+
+        String connectionString = "jdbc:postgresql://localhost:5432/squad";
+        Sql2o sql2o = new Sql2o(connectionString, "postgres", "chowder");
         Sql2oTaskDao taskDao = new Sql2oTaskDao(sql2o);
+        Squads squado=new Squads(sql2o);
         staticFileLocation("/public");
 
         get("/",(request, response) ->{
                 Map<String,Object> model=new HashMap<String,Object>();
+                List<Squad> sqd= squado.getSquad();
+                model.put("squad",sqd);
                 List<Task> tasks = taskDao.getAll();
                 model.put("tasks", tasks);
                 return new ModelAndView(model,"index.hbs");
                 } , new HandlebarsTemplateEngine());
-
-        post("/posts/new", (request, response) -> { //URL to make new post on POST route
+        get("/newfile",(request, response) -> {
+            Map<String,Object> model=new HashMap<String, Object>();
+            return new ModelAndView(model,"new.hbs");
+        },new HandlebarsTemplateEngine());
+        post("/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             request.session(true);
             String name = request.queryParams("name");
@@ -45,14 +52,17 @@ public class App {
             taskDao.add(newTask);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+        post("/serial/new",(request, response) -> {
+            Map<String,Object>model=new HashMap<String,Object>();
+            String name=request.queryParams("name");
+            String cause=request.queryParams("cause");
+            squado.addSquads(name,cause);
+            List<Squad> sqd= squado.getSquad();
+            model.put("squad",sqd);
+            List<Task> tasks = taskDao.getAll();
+            model.put("tasks", tasks);
+            return new ModelAndView(model,"index.hbs");
+        },new HandlebarsTemplateEngine());
 
-        get("/session",(request, response) ->{
-            request.session(true);
-            Map<String,Object> model=new HashMap<String,Object>();
-
-            String uname=request.session().attribute("usrname");
-            model.put("a",uname);
-            return null;
-        } , new HandlebarsTemplateEngine());
     }
 }

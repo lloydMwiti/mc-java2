@@ -13,9 +13,6 @@ public class Task {
     private boolean completed;
     private static ArrayList<Task> instances = new ArrayList<>();
     private LocalDateTime createdAt;
-
-
-
     private int id;
 
     public Task(String name,String power,String age,String weakness,String fight){
